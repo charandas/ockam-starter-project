@@ -1,0 +1,16 @@
+type AddressType u8
+
+type Address union { str | list<u8> | list<struct {
+    type: AddressType
+    value: str
+  }>
+}
+
+type Route list<Address>
+
+type TransportMessage struct {
+  onwardRoute: Route
+  returnRoute: Route
+  payload: list<u8>
+}
+

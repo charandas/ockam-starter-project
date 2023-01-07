@@ -13,14 +13,18 @@
   "author": "Charandas Batra",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@bare-ts/tools": "^0.11.0",
     "@types/node": "^18.11.18",
+    "rome": "^11.0.0",
     "typescript": "^4.9.4"
   },
   "dependencies": {
+    "@bare-ts/lib": "^0.3.0",
     "@ockam/ockam": "file:../ockam/implementations/typescript/ockam/ockam",
     "ts-results": "^3.3.0"
   },
   "bundleDependencies": [
+    "@bare-ts/lib",
     "ts-results"
   ]
 }
