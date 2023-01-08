@@ -43,11 +43,15 @@ export class TcpSendWorker implements Worker {
     this.internal_addr = internal_addr
     this.stream = stream
   }
+  // Called by the node system in the WorkerRelay's `run` method
   initialize(ctx: Context): Result<boolean, TransporttErr> {
+    // For an intiator type of transport, stream won't be set
+    // So, initialize it
     if (!this.stream) {
       /// debug("Connecting")
       const client = new MessageSocket(new Socket())
       const connection = client.connect(this.peer)
+      this.stream = connection
     }
     return Ok(true)
   }

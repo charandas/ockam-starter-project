@@ -21,6 +21,7 @@
   "dependencies": {
     "@bare-ts/lib": "^0.3.0",
     "@ockam/ockam": "file:../ockam/implementations/typescript/ockam/ockam",
+    "@sidewinder/channel": "^0.12.4",
     "ts-results": "^3.3.0"
   },
   "bundleDependencies": [
