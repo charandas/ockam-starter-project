@@ -29,6 +29,7 @@ This is a Typescript project I undertook which entailed translating the TcpTrans
 
 ### TODO
 
-[ ] Implement `Context` to be more than just an interface, so `ctx.Forward` and `ctx.Send` actually work.
-[ ] Implement `TcpReceiveProcessor` and `start_pair` functions
-[ ] Testing
+- [ ] Implement `Context` to be more than just an interface, so `ctx.Forward` and `ctx.Send` actually work.
+- [ ] Implement `TcpTransport` fully once router is ready and register with `Context`
+- [ ] Implement `TcpReceiveProcessor` and `start_pair` functions
+- [ ] Testing
