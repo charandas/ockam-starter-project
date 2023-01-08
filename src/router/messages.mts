@@ -1,5 +1,6 @@
 import { type Address } from "@ockam/ockam/src/routing"
 import { type Result } from "ts-results"
+import { TransporttErr } from "../types/errors.mjs"
 
 interface TcpRouterRegisterRequest {
   accepts: Address[]
@@ -25,7 +26,7 @@ export type TcpRequestRequest =
   | TcpRouterUnregisterRequest
 
 export type TcpRouterResponse =
-  | Result<void, any>
-  | Result<Address, any>
-  | Result<void, any>
-  | Result<void, any>
+  | Result<void, TransporttErr>
+  | Result<Address, TransporttErr>
+  | Result<void, TransporttErr>
+  | Result<void, TransporttErr>
