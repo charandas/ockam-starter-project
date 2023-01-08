@@ -2,7 +2,7 @@
 
 This is a Typescript project I undertook which entailed translating the TcpTransport part of the current Ockam Rust library. It is still a WIP, but here are some thoughts:
 
-1. `TcpRouter` and `TcpRouterHandle`: They themselves talking communicating an `api_addr` is probably overkill for a PoC. Instead, the `TcpRouter` could likely directly take function calls and register new pairs et cetera leading to a faster implementation and verification of the design principles in node.js.
+1. `TcpRouter` and `TcpRouterHandle`: They themselves communicating via an API is probably overkill for a PoC. Instead, the `TcpRouter` could likely directly take function calls and register new pairs leading to a faster implementation and verification of the design principles in node.js.
 2. I am not sure how registrations benefit in the current TcpRouter design. It saves the connected peers in `accepts`; perhaps it gets used in one of the other crates.
 3. Bare Message related ser(de) code in Ockam Rust shows the vector length being read into a u64, but elsewhere in the TCP library, `prepare_message` does a 16-bit length prefix. I am not sure why the discrepancy. I went out of my way to use BigInt to capture the 8 bytes from the message preamble but that didn't make other Node.js APIs happy as they expect type `number` for length on most of the Socket APIs. (For now, I suppressed those issues with a coercion back to `Number`.)
 4. I was able to use `@bare-ts/lib` and adapt a JSON based Duplex Stream implementation (see [MessageSocket](./src/worker/message_socket.mts)) I read a blog post about to use Bare definitions for a `TransportMessage` I wrote.
